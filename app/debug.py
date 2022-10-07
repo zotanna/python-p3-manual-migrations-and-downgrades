@@ -8,7 +8,7 @@ from models import Base, Student
 
 if __name__ == '__main__':
 
-    engine = create_engine('sqlite:///db/migrations_test.db')
+    engine = create_engine('sqlite:///migrations_test.db')
     Session = sessionmaker(bind=engine)
     session = Session()
 

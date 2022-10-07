@@ -100,7 +100,7 @@ Double check that your table name has changed, either through VSCode's
 SQLite Viewer extension or the `sqlite3` command from the command line:
 
 ```console
-$ sqlite3 db/migrations_test.db
+$ sqlite3 migrations_test.db
 SQLite version 3.37.0 2021-12-09 01:34:53
 Enter ".help" for usage hints.
 sqlite> .tables
@@ -156,7 +156,7 @@ Now we can check that your table name has changed again, either through VSCode's
 SQLite Viewer extension or the `sqlite3` command from the command line:
 
 ```console
-$ sqlite3 db/migrations_test.db
+$ sqlite3 migrations_test.db
 SQLite version 3.37.0 2021-12-09 01:34:53
 Enter ".help" for usage hints.
 sqlite> .tables
@@ -185,8 +185,8 @@ work using `git` to submit.
 ## Conclusion
 
 You should now have a basic idea of how to make all variety of changes to
-database schemas using SQLAlchemy and Alembic. Next, let's put these skills
-to the test with the Costume Store Lab.
+database schemas using SQLAlchemy and Alembic. Next, let's discuss how to
+fill our databases a little more efficiently than we have so far.
 
 ***
 
