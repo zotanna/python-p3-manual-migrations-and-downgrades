@@ -53,7 +53,7 @@ or **downgrade**, migrations that were unnecessary or went awry.
 Alembic can't detect changes to table names, so let's practice writing manual
 migrations by changing the `students` table to `scholars`. We can do this very
 easily in SQLAlchemy through changing the value of the `__tablename__` class
-attribute in `db.py`:
+attribute in `models.py`:
 
 ```py
 # models
