@@ -132,8 +132,8 @@ the `alembic history` command.
 ## Downgrading Migrations
 
 While `scholars` is a lovely name for a table, it is not necessarily the best
-descriptor for a 4th grader. We also used the word "student" in many of the
-column names- I think we might have a problem.
+descriptor for a 4th grader. We also used the word "student" in our `__repr__`
+and all of our advertising materials. We may have a problem.
 
 To downgrade migrations, we need to find the ID of the migration that we want
 to return to. This would work even if we chose to return to the original empty
@@ -167,6 +167,13 @@ alembic_version  students
 > carrying them out, so it is important to think about what your code will do
 > before running your first manual upgrade.
 
+We probably won't want to use this migration again, and it could confuse Alembic
+as to where `head` is when we make new migrations. It's a good idea to delete
+the unused `head` in these circumstances, so go into `migrations/versions` and
+delete the most recent migration.
+
+***
+
 ## Instructions
 
 If you have not already, run `pipenv install` to create your virtual
@@ -174,11 +181,13 @@ environment and `pipenv shell` to enter the virtual environment.
 
 - Rename a column in the `Student` model.
 - Manually generate a migration using Alembic.
-- Upgrade your database schema with `alembic upgrade head`.
-- Revert your change with `alembic downgrade [revision_ID]`.
+  - The format of Alembic's `alter_column` command is
+    `op.alter_column('table_name', 'old_column', new_column_name='new_column')`.
+- Upgrade your database schema with `alembic upgrade {revision_id}`.
+- Revert your change with `alembic downgrade {down_revision_ID}`.
 
-Once your database schema has been upgraded and downgraded, commit and push your
-work using `git` to submit.
+Make sure you've got all of this working before moving onto the next lesson-
+you'll need this skill in your Phase 3 code challenge!
 
 ***
 
