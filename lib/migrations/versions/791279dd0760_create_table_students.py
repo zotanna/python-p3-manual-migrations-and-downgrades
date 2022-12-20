@@ -1,8 +1,8 @@
-"""Added Student model
+"""create table students
 
-Revision ID: 361dae855898
+Revision ID: 791279dd0760
 Revises: 6b9cb35ba46e
-Create Date: 2022-08-04 14:21:32.441071
+Create Date: 2022-12-20 10:05:32.829662
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '361dae855898'
+revision = '791279dd0760'
 down_revision = '6b9cb35ba46e'
 branch_labels = None
 depends_on = None
@@ -25,7 +25,7 @@ def upgrade() -> None:
     sa.Column('grade', sa.Integer(), nullable=True),
     sa.Column('birthday', sa.DateTime(), nullable=True),
     sa.Column('enrolled_date', sa.DateTime(), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_students_name'), 'students', ['name'], unique=False)
     # ### end Alembic commands ###
