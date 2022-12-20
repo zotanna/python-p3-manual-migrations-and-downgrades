@@ -25,9 +25,7 @@ def upgrade() -> None:
     sa.Column('grade', sa.Integer(), nullable=True),
     sa.Column('birthday', sa.DateTime(), nullable=True),
     sa.Column('enrolled_date', sa.DateTime(), nullable=True),
-    sa.CheckConstraint('grade BETWEEN 1 AND 12', name='grade_between_1_and_12'),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email', name='unique_email')
     )
     op.create_index(op.f('ix_students_name'), 'students', ['name'], unique=False)
     # ### end Alembic commands ###
